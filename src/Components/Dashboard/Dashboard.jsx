@@ -46,13 +46,27 @@ const Dashboard = () => {
     setWarningMessage("⚠️ ESP32 CAM is not connected. Cannot capture images.");
   };
 
-  // Fetch images from server
+  // Fetch images from Firebase Firestore directly
   const fetchImages = async () => {
     try {
-      const response = await axios.get(`${API_URL}/get-images`);
-      setImages(response.data);
+      // Import necessary firestore functions dynamically or ensure they are imported at the top
+      const { collection, getDocs, query, orderBy } = await import("firebase/firestore");
+      const { db } = await import("../../firebase.js");
+
+      const q = query(collection(db, "images"), orderBy("modified_time", "desc"));
+      const querySnapshot = await getDocs(q);
+      
+      const fetchedImages = querySnapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          image_path: data.image_path,
+          // Firestore Timestamp objects have a .toDate() method
+          modified_time: data.modified_time ? data.modified_time.toDate() : new Date()
+        };
+      });
+      setImages(fetchedImages);
     } catch (error) {
-      setWarningMessage("⚠️ Failed to load images. Is the server running?");
+      setWarningMessage("⚠️ Failed to load images from Firebase.");
       console.error(error);
     }
   };
