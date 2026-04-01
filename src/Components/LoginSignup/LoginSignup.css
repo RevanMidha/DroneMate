@@ -1,0 +1,215 @@
+/* ===========================
+   LOGIN / SIGNUP PAGE
+   =========================== */
+
+/* Full-page layout with the drone background */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url('../../Components/Assets/Drone bg.webp') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+}
+
+/* Glassmorphism card */
+.wrapper {
+  width: 420px;
+  background: rgba(15, 32, 39, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 16px;
+  padding: 36px 40px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.wrapper h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+/* Input fields */
+.wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 24px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  outline: none;
+  border-radius: 40px;
+  font-size: 15px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-box input:focus {
+  border-color: rgba(80, 200, 120, 0.6);
+  box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.15);
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Submit button */
+.wrapper button[type="submit"],
+.wrapper .submit-btn {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(135deg, #50c878, #3a9d5e);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 14px rgba(80, 200, 120, 0.3);
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wrapper button[type="submit"]:hover,
+.wrapper .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(80, 200, 120, 0.45);
+}
+
+.wrapper button[type="submit"]:active,
+.wrapper .submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Forgot Password */
+.remember-forgot {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.remember-forgot a,
+.remember-forgot button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: inherit;
+  padding: 0;
+}
+
+.remember-forgot a:hover,
+.remember-forgot button:hover {
+  color: #50c878;
+}
+
+/* Register / Login Link */
+.wrapper .register-link {
+  font-size: 14px;
+  text-align: center;
+  margin: 16px 0 8px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.register-link p a,
+.register-link p button {
+  background: none;
+  border: none;
+  color: #50c878;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.register-link p a:hover,
+.register-link p button:hover {
+  color: #6fdf99;
+  text-decoration: underline;
+}
+
+/* Welcome Text */
+.welcome-text {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.welcome-text h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  margin: 0;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+/* Toast notification */
+.toast-message {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 16px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.toast-message.error {
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.35);
+  color: #ff8080;
+}
+
+.toast-message.success {
+  background: rgba(80, 200, 120, 0.15);
+  border: 1px solid rgba(80, 200, 120, 0.35);
+  color: #6fdf99;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .wrapper {
+    width: 100%;
+    padding: 28px 24px;
+    border-radius: 12px;
+  }
+
+  .wrapper h1 {
+    font-size: 26px;
+  }
+
+  .welcome-text h1 {
+    font-size: 2rem;
+  }
+}
