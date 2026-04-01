@@ -52,5 +52,3 @@ node server.js & npm start
 
 To integrate your ESP32 CAM, configure it to make a `POST` request to `https://<your-vercel-deployment-url>/save-image` with the image file sent as multipart form-data under the key `image`.
 
----
-[Read the full Project Writeup](./project_writeup.md)
